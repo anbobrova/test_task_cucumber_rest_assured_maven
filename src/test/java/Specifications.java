@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -22,5 +23,6 @@ public class Specifications {
     public static void installSpecification(RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
+        RestAssured.filters((new AllureRestAssured()));
     }
 }
